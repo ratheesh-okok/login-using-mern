@@ -14,7 +14,9 @@ app.use(bodyParser.json())
 app.use(cors())
 app.use('/auth',AuthRouter)
 app.use('/products',ProductRouter)
-
+app.use("/" ,(req,res)=>{
+    console.log("your backend is running")
+})
 
 
 
