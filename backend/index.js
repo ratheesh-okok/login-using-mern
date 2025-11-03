@@ -1,22 +1,22 @@
-const express =require('express')
+const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
-const cors = require('cors')
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-const AuthRouter = require('./router/AuthRouter.js')
-const ProductRouter=require('./router/productrouter.js')
+const AuthRouter = require('./router/AuthRouter.js');
+const ProductRouter = require('./router/productrouter.js');
 require('dotenv').config();
-require('./models/db.js')
+require('./models/db.js');
 
-const PORT=process.env.PORT || 8080;
+app.use(bodyParser.json());
+app.use(cors());
 
-app.use(bodyParser.json())
-app.use(cors())
-app.use('/auth',AuthRouter)
-app.use('/products',ProductRouter)
-app.get("/" ,(req,res)=>{
-    res.send("ok done")
-})
+app.use('/auth', AuthRouter);
+app.use('/products', ProductRouter);
 
+app.get('/', (req, res) => {
+  res.send('Backend deployed successfully on Vercel!');
+});
 
-
+// Important: do NOT use app.listen() on Vercel
+module.exports = app;
