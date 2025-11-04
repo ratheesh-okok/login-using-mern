@@ -26,7 +26,7 @@ function Signup() {
       return handleError("fill all the necessary fields")
     }
     try {
-      const url = "http://localhost:8080/auth/signup"
+      const url = "https://login-using-mern.vercel.app/auth/signup"
       const response = await fetch(url,{
         method:'POST',
         headers:{
